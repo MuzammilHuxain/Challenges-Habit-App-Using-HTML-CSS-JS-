@@ -11,6 +11,11 @@ let signupbtn_02 = document.querySelectorAll("#signup")[1];
 //signing into account (Sign In) button
 
 let signinbtn_02 = document.querySelectorAll("#signin")[0];
+let email = document.querySelectorAll("#email")[0];
+let password = document.querySelectorAll("#password")[0];
+let login_error = document.querySelector(".login-error");
+console.log(email);
+console.log(password);
 
 
 
@@ -62,11 +67,34 @@ signinbtn.addEventListener("click", async (e) => {
 })
 
 
-// signinbtn_02.addEventListener("click", (e)=>{
-//     alert("Sign in failed")
-// })
+signinbtn_02.addEventListener("click", async (e) => {
+   
+
+    e.preventDefault()
+    let email = document.querySelectorAll("#email")[0].value;
+    let password = document.querySelectorAll("#password")[0].value;
+  
+    let response = await axios.post("/login", {
+        email,
+        password
+    });
+    if (response.data.isLogin) {
+        window.location.href("/")
+    }
+    else {
+
+        console.log(response.data.message);
+        login_error.style.display = "block";
+
+        setTimeout(() => {
+            login_error.style.display = "none";
+
+        }, 2000)
+    }
+
+})
 
 
-// signupbtn_02.addEventListener("click", (e)=>{
+// signupbtn_02.addEventListener("click", (e) => {
 //     alert("Sign up failed")
 // })

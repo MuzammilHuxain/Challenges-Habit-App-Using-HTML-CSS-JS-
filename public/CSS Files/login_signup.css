@@ -11,12 +11,16 @@ html {
 }
 
 body {
+    background-image: url('../images/sunset-1373171_1280.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #212121;
+    /* background-color: #212121; */
     font-family: 'Abril Fatface', cursive;
     font-family: 'Fraunces', serif;
     font-family: 'Montserrat', sans-serif;
@@ -42,7 +46,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     background-color: transparent;
-    color: white;
+    color: black;
 }
 
 
@@ -78,6 +82,12 @@ body {
 
 .signup-from {
     gap: .5rem
+}
+.login-error{
+    font-size: 12px;
+    font-style: italic;
+    display: none;
+    color: red;
 }
 
 input {

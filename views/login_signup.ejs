@@ -19,7 +19,7 @@
         <div class="singin-container">
             <div class="sign-from-container">
                 <h2 class="prmiary-heading">Sign in to your account</h2>
-                <form action="/login" class="form" method="post">
+                <form class="form" action="login">
                     <label for="email">Email</label>
                     <input type="text" id="email" placeholder="Enter your username" name="email">
 
@@ -28,13 +28,11 @@
                     <input type="password" id="password" placeholder="Enter your password" name="password">
 
 
+                    <h3 class="login-error">Inavlid login details</h3>
                     <button id="signin" type="submit">Sign in</button>
-
                 </form>
-
-
             </div>
-
+            
             <div class="for-new-user">
                 <p>Don't have an account</p>
                 <p>Start your journey with us</p>
@@ -53,7 +51,7 @@
         <div class="signup-container">
             <div class="signup-from-container">
                 <h2 class="prmiary-heading">Create your account</h2>
-                <form action="/signup" method="post" class="form signup-from" >
+                <form action="/signup" method="post" class="form signup-from">
 
                     <label for="name">Name</label>
                     <input type="text" id="name" placeholder="Enter your name" name="username">
@@ -88,7 +86,9 @@
 
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../Javascript Files/login_signup_script.js"></script>
 
 

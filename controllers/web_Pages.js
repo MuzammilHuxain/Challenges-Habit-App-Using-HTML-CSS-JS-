@@ -124,28 +124,48 @@ let createAccount = async (req, res) => {
 let getUserAccount = async (req, res) => {
 
     try {
+       
         const email = req.body.email;
         const password = req.body.password;
+        console.log(email + " " + password);
 
         const userData = await signUp.findOne({ email });
 
         if (userData) {
             const isTrue = await bcrypt.compare(password, userData.password)
+            console.log(isTrue);
             
             if (isTrue) {
-                res.redirect("/");
+                res.send({
+                    isLogin: true,
+                    message: "Login successfull"
+                })
+
             }
             else {
-                res.send("invalid login detials")
+                console.log("redirecting failed");
+
+
+                res.send({
+                    isLogin: false,
+                    message: "invalid login details"
+                })
 
             }
         }
         else {
-            res.send("invalid login detials")
+            console.log("userdata err");
+
+            res.send({
+                isLogin: false,
+                message: "invalid login details"
+            })
+
         }
     }
     catch (err) {
-        res.status(400).send("Invalid login")
+        res.status(400).send({ "Message": "invalid login details" })
+
     }
 
 }
